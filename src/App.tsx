@@ -8,10 +8,6 @@ let isStudent: boolean;
 let hobbies: string[];
 let roles: [number, string];
 
-function takeName(name: string) {
-  console.log(name);
-}
-
 function App() {
   return <div className="App"></div>;
 }
