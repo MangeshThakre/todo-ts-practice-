@@ -1,6 +1,9 @@
 import React from "react";
+import { useState } from "react";
 import logo from "./logo.svg";
 import "./App.css";
+
+import InputField from "./components/InputField";
 
 let name: string;
 let age: number;
@@ -61,8 +64,14 @@ let mangesh: guy = {
 // };
 // console.log(y);
 
-function App() {
-  return <div className="App">hello world</div>;
-}
+const App: React.FC = () => {
+  const [todo, setTodo] = useState<string | number>("");
+  return (
+    <div className="App">
+      <span className="heading">Taskify</span>
+      <InputField todo={todo} setTodo={setTodo} />
+    </div>
+  );
+};
 
 export default App;
