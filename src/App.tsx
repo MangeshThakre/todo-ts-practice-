@@ -9,7 +9,7 @@ let hobbies: string[];
 let roles: [number, string];
 
 function App() {
-  return <div className="App"></div>;
+  return <div className="App">hello world</div>;
 }
 
 export default App;
