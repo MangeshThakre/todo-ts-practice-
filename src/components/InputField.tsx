@@ -1,5 +1,6 @@
 import React from "react";
 import "./style.css";
+import { useRef } from "react";
 
 interface Props {
   todo: string;
@@ -8,9 +9,13 @@ interface Props {
   setTodoList: React.Dispatch<React.SetStateAction<object[]>>;
 }
 
-const inputField = ({ todo, setTodo }: Props) => {
+const InputField = ({ todo, setTodo, todoList, setTodoList }: Props) => {
+  const inputValue = useRef<HTMLInputElement>(null);
+
   function submit(e: React.FormEvent<HTMLFormElement>) {
     e.preventDefault();
+    setTodoList([{ todo: todo, date: Date.now(), isDone: false }, ...todoList]);
+    setTodo("");
   }
 
   return (
@@ -18,6 +23,7 @@ const inputField = ({ todo, setTodo }: Props) => {
       <form className="input" onSubmit={(e) => submit(e)}>
         <input
           type="input"
+          ref={inputValue}
           placeholder="Enter a task"
           className="input__box"
           value={todo}
@@ -33,4 +39,4 @@ const inputField = ({ todo, setTodo }: Props) => {
   );
 };
 
-export default inputField;
+export default InputField;

@@ -5,6 +5,9 @@ import "./App.css";
 import InputField from "./components/InputField";
 import TodoList from "./components/TodoList";
 
+
+
+
 const App: React.FC = () => {
   const [todo, setTodo] = useState<string>("");
   const [todoList, setTodoList] = useState<object[]>([]);
@@ -46,7 +49,7 @@ let person: Person = {
 
 let lotOfPeople: Person[] = [person, person];
 
-console.log(lotOfPeople);
+// console.log(lotOfPeople);
 
 let printName: (name: string) => void; // not return undefined thats why void
 
