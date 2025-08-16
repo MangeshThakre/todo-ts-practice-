@@ -2,14 +2,20 @@ import React from "react";
 import "./style.css";
 
 interface Props {
-  todo: string | number;
-  setTodo: React.Dispatch<React.SetStateAction<string | number>>;
+  todo: string;
+  setTodo: React.Dispatch<React.SetStateAction<string>>;
+  todoList: object[];
+  setTodoList: React.Dispatch<React.SetStateAction<object[]>>;
 }
 
 const inputField = ({ todo, setTodo }: Props) => {
+  function submit(e: React.FormEvent<HTMLFormElement>) {
+    e.preventDefault();
+  }
+
   return (
     <div>
-      <form className="input">
+      <form className="input" onSubmit={(e) => submit(e)}>
         <input
           type="input"
           placeholder="Enter a task"

@@ -1,9 +1,32 @@
 import React from "react";
 import { useState } from "react";
-import logo from "./logo.svg";
 import "./App.css";
 
 import InputField from "./components/InputField";
+import TodoList from "./components/TodoList";
+
+const App: React.FC = () => {
+  const [todo, setTodo] = useState<string>("");
+  const [todoList, setTodoList] = useState<object[]>([]);
+
+  return (
+    <div className="App">
+      <span className="heading">Taskify</span>
+      <InputField
+        todo={todo}
+        setTodo={setTodo}
+        todoList={todoList}
+        setTodoList={setTodoList}
+      />
+      <TodoList
+        todo={todo}
+        setTodo={setTodo}
+        todoList={todoList}
+        setTodoList={setTodoList}
+      />
+    </div>
+  );
+};
 
 let name: string;
 let age: number;
@@ -63,15 +86,5 @@ let mangesh: guy = {
 //   d: 6
 // };
 // console.log(y);
-
-const App: React.FC = () => {
-  const [todo, setTodo] = useState<string | number>("");
-  return (
-    <div className="App">
-      <span className="heading">Taskify</span>
-      <InputField todo={todo} setTodo={setTodo} />
-    </div>
-  );
-};
 
 export default App;
