@@ -5,11 +5,19 @@ import { useRef } from "react";
 interface Props {
   todo: string;
   setTodo: React.Dispatch<React.SetStateAction<string>>;
+  handleAdd: () => void;
+
   todoList: object[];
   setTodoList: React.Dispatch<React.SetStateAction<object[]>>;
 }
 
-const InputField = ({ todo, setTodo, todoList, setTodoList }: Props) => {
+const InputField = ({
+  todo,
+  setTodo,
+  todoList,
+  setTodoList,
+  handleAdd
+}: Props) => {
   const inputValue = useRef<HTMLInputElement>(null);
 
   function submit(e: React.FormEvent<HTMLFormElement>) {

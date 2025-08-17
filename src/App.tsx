@@ -2,15 +2,16 @@ import React from "react";
 import { useState } from "react";
 import "./App.css";
 
+import { Todo } from "./components/modal";
 import InputField from "./components/InputField";
 import TodoList from "./components/TodoList";
-
-
-
 
 const App: React.FC = () => {
   const [todo, setTodo] = useState<string>("");
   const [todoList, setTodoList] = useState<object[]>([]);
+  const [todos, setTodos] = useState<Todo[]>([]);
+
+  const handleAdd = () => {};
 
   return (
     <div className="App">
@@ -20,6 +21,7 @@ const App: React.FC = () => {
         setTodo={setTodo}
         todoList={todoList}
         setTodoList={setTodoList}
+        handleAdd={handleAdd}
       />
       <TodoList
         todo={todo}

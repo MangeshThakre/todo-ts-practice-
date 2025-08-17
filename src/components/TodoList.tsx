@@ -12,9 +12,9 @@ interface Props {
 const TodoList = ({ todo, setTodo, todoList }: Props) => {
   return (
     <div>
-      {todoList.map((todo) => {
+      {/* {todoList.map((todo) => {
         return <SingleTodo todo={todo} setTodo={setTodo} />;
-      })}
+      })} */}
     </div>
   );
 };
