@@ -1,37 +1,21 @@
 import React from "react";
 import "./style.css";
-import { useRef } from "react";
+import { Todo } from "./modal";
 
 interface Props {
   todo: string;
   setTodo: React.Dispatch<React.SetStateAction<string>>;
-  handleAdd: () => void;
-
-  todoList: object[];
-  setTodoList: React.Dispatch<React.SetStateAction<object[]>>;
+  handleAdd: (e: React.FormEvent<HTMLFormElement>) => void;
+  todos: Todo[];
+  setTodos: React.Dispatch<React.SetStateAction<Todo[]>>;
 }
 
-const InputField = ({
-  todo,
-  setTodo,
-  todoList,
-  setTodoList,
-  handleAdd
-}: Props) => {
-  const inputValue = useRef<HTMLInputElement>(null);
-
-  function submit(e: React.FormEvent<HTMLFormElement>) {
-    e.preventDefault();
-    setTodoList([{ todo: todo, date: Date.now(), isDone: false }, ...todoList]);
-    setTodo("");
-  }
-
+const InputField = ({ todo, setTodo, todos, setTodos, handleAdd }: Props) => {
   return (
     <div>
-      <form className="input" onSubmit={(e) => submit(e)}>
+      <form className="input" onSubmit={(e) => handleAdd(e)}>
         <input
           type="input"
-          ref={inputValue}
           placeholder="Enter a task"
           className="input__box"
           value={todo}

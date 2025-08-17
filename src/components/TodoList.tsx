@@ -1,20 +1,20 @@
 import React from "react";
 import { useState } from "react";
 import SingleTodo from "./SingleTodo";
-
+import { Todo } from "./modal";
 interface Props {
   todo: string;
+  todos: Todo[];
+  setTodos: React.Dispatch<React.SetStateAction<Todo[]>>;
   setTodo: React.Dispatch<React.SetStateAction<string>>;
-  todoList: object[];
-  setTodoList: React.Dispatch<React.SetStateAction<object[]>>;
 }
 
-const TodoList = ({ todo, setTodo, todoList }: Props) => {
+const TodoList = ({ todo, todos, setTodos }: Props) => {
   return (
     <div>
-      {/* {todoList.map((todo) => {
-        return <SingleTodo todo={todo} setTodo={setTodo} />;
-      })} */}
+      {todos.map((todo: Todo) => {
+        return <SingleTodo key={todo.id} todo={todo} />;
+      })}
     </div>
   );
 };

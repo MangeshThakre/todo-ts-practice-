@@ -1,6 +1,6 @@
 export interface Todo {
-    id: number;
-    todo: String;
-    isDone: boolean
+  id: number;
+  item: string;
+  isDone: boolean;
 }
 

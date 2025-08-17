@@ -8,10 +8,15 @@ import TodoList from "./components/TodoList";
 
 const App: React.FC = () => {
   const [todo, setTodo] = useState<string>("");
-  const [todoList, setTodoList] = useState<object[]>([]);
   const [todos, setTodos] = useState<Todo[]>([]);
 
-  const handleAdd = () => {};
+  const handleAdd = (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+    if (todo) {
+      setTodos([{ item: todo, id: Date.now(), isDone: false }, ...todos]);
+    }
+    setTodo("");
+  };
 
   return (
     <div className="App">
@@ -19,15 +24,15 @@ const App: React.FC = () => {
       <InputField
         todo={todo}
         setTodo={setTodo}
-        todoList={todoList}
-        setTodoList={setTodoList}
+        todos={todos}
+        setTodos={setTodos}
         handleAdd={handleAdd}
       />
       <TodoList
         todo={todo}
         setTodo={setTodo}
-        todoList={todoList}
-        setTodoList={setTodoList}
+        todos={todos}
+        setTodos={setTodos}
       />
     </div>
   );
